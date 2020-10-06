@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Sms{% endblock %}
+
+{% block body %}
+    <h3>Send Sms</h3>
+
+    {{ include('sms/_form.html.twig') }}
+
+    <a href="{{ path('sms_index') }}">back to list</a>
+{% endblock %}

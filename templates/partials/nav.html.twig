@@ -1,0 +1,14 @@
+<header class="container mb-5">
+    <h2>TextSender App
+        {% if app.user != null %}
+            <span class="float-right small text-muted">
+            Hello {{ app.user }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </span>
+        {% else %}
+            <span class="float-right small text-muted">
+                <a href="{{ path('app_login') }}">Log In</a>,
+                <a href="{{ path('app_register') }}">Register</a> <br/>
+            </span>
+        {% endif %}
+    </h2>
+</header>

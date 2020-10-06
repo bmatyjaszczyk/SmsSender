@@ -1,0 +1,56 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "encore production",
+    "build": "encore production --progress",
+    "start": "sudo yarn && sudo npm run build",
+    "encore": "encore",
+    "dev": "encore dev",
+    "dev-server": "encore dev-server",
+    "install_watch": "yarn install && yarn run watch",
+    "watch": "encore dev --watch",
+    "heroku-postbuild": "webpack -p --config webpack.config.js"
+  },
+  "dependencies": {
+    "babel-loader": "^8.0.6",
+    "bootstrap": "^4.4.1",
+    "child_process": "^1.0.2",
+    "copy-webpack-plugin": "^5.1.1",
+    "core-js": "^3.6.3",
+    "fs": "0.0.2",
+    "jquery": "^3.4.1",
+    "lodash": "latest",
+    "lodash-node": "^3.10.2",
+    "net": "^1.0.2",
+    "node-sass": "4.13.0",
+    "npm-check": "^5.9.0",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.31.0",
+    "css-loader": "^2.1.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.1.2",
+    "sass": "^1.24.4",
+    "sass-loader": "^9.0.3",
+    "webpack-notifier": "^1.8.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
+        {% endblock %}
+    </head>
+    <body>
+        {% include 'partials/nav.html.twig' %}
+        <main class="container">
+            {% block body %}{% endblock %}
+        </main>
+        {% block javascripts %}
+            <script type="application/javascript" src="{{ asset('build/runtime.js') }}"></script>
+            <script type="application/javascript" src="{{ asset('build/app.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

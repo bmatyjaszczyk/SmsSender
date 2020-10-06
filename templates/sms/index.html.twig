@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sms{% endblock %}
+
+{% block body %}
+    <h3>SMS <span class="small text-muted"> (Refresh to see status change)</span> </h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Body</th>
+                <th>Recipent</th>
+                <th>Status</th>
+                <th>Created_at</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sms in sms %}
+            <tr>
+                <td>{{ sms.id }}</td>
+                <td>{{ sms.body }}</td>
+                <td>{{ sms.recipient }}</td>
+                <td>{{ sms.status.name }}</td>
+                <td>{{ sms.createdAt ? sms.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sms_new') }}">Send new</a>
+{% endblock %}

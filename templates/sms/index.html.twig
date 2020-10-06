@@ -12,7 +12,8 @@
                 <th>Body</th>
                 <th>Recipent</th>
                 <th>Status</th>
-                <th>Created_at</th>
+                <th>Sender</th>
+                <th>Created at</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
                 <td>{{ sms.body }}</td>
                 <td>{{ sms.recipient }}</td>
                 <td>{{ sms.status.name }}</td>
+                <td>{{ sms.sender.email }}</td>
                 <td>{{ sms.createdAt ? sms.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         {% else %}

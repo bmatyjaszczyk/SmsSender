@@ -14,7 +14,7 @@ final class Version20201002202410 extends AbstractMigration
 {
     public function getDescription() : string
     {
-        return '';
+        return 'Create sms and sms status tables';
     }
 
     public function up(Schema $schema) : void

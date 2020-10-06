@@ -43,6 +43,8 @@ class TwilioController extends AbstractController
 
     /**
      * @Route("/statusCallback", name="sms_status_callback", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function handleStatusCallback(Request $request): Response
     {

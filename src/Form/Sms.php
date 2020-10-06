@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Sms as SmsEntity;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -39,9 +38,6 @@ class Sms extends AbstractType
                     ])
                 ],
             ])
-//            ->add('created_at', HiddenType::class)
-//            ->add('sender', HiddenType::class)
-//            ->add('status', HiddenType::class)
         ;
 
     }

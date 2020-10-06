@@ -20,7 +20,7 @@ class Sms
         $this->sms = $sms;
     }
 
-    public function getSms(): \App\Entity\Sms
+    public function getSms(): SmsEntity
     {
         return $this->sms;
     }

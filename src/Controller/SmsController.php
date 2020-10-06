@@ -10,8 +10,6 @@ use App\Repository\SmsRepository;
 use App\SmsService;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\CacheItemPoolInterface;
-use Psr\Cache\InvalidArgumentException;
-use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,7 +60,6 @@ class SmsController extends AbstractController
     /**
      * @Route("/new", name="sms_new", methods={"GET","POST"})
      * @param Request $request
-     * @param EntityManagerInterface $entityManager
      * @return Response
      * @throws \Exception
      */
@@ -95,7 +92,7 @@ class SmsController extends AbstractController
         ]);
     }
 
-    private function isLocked(User $user)
+    private function isLocked(User $user): bool
     {
         $lock = $this->cacheItemPool->getItem('lock.' . $user->getId());
         return $lock->isHit();

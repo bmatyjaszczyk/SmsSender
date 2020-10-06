@@ -35,14 +35,22 @@ class SmsController extends AbstractController
      */
     private $cacheItemPool;
 
+    /**
+     * @var SmsRepository
+     */
+    private $smsRepository;
+
     public function __construct(
         SmsService $smsService,
         EntityManagerInterface $entityManager,
-        CacheItemPoolInterface $cacheItemPool)
+        CacheItemPoolInterface $cacheItemPool,
+        SmsRepository $smsRepository
+    )
     {
         $this->smsService = $smsService;
         $this->entityManager = $entityManager;
         $this->cacheItemPool = $cacheItemPool;
+        $this->smsRepository = $smsRepository;
     }
 
     /**
@@ -50,10 +58,10 @@ class SmsController extends AbstractController
      * @param SmsRepository $smsRepository
      * @return Response
      */
-    public function index(SmsRepository $smsRepository): Response
+    public function index(): Response
     {
         return $this->render('sms/index.html.twig', [
-            'sms' => $smsRepository->findBy([], ['id' => 'desc']),
+            'sms' => $this->smsRepository->findBy([], ['id' => 'desc']),
         ]);
     }
 
@@ -68,8 +76,7 @@ class SmsController extends AbstractController
         $user = $this->getUser();
 
         if ($this->isLocked($user)) {
-            return $this->render('sms/locked.html.twig', [
-            ]);
+            return $this->render('sms/locked.html.twig', []);
         }
 
         $sms = new Sms();
